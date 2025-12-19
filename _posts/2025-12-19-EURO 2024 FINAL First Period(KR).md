@@ -1077,6 +1077,7 @@ ax.set_title(f"{TEAM_NAME} Passing Map, Period {period}", fontsize=12, pad=8)
 
 plt.show()
 plt.savefig(f"England Passing Map {period}.png",dpi=200, bbox_inches="tight")
+![England Passing Map](England Passing Map 1.png)
 ```
 
 
@@ -1208,6 +1209,7 @@ ax.set_title(f"{TEAM_NAME} Passing Map, Period {period}", fontsize=12, pad=8)
 
 plt.show()
 plt.savefig(f"England Passing Map {period}.png", dpi=200, bbox_inches="tight")
+![Spain Passing Map](Spain Passing Map 1.png)
 ```
 
 
