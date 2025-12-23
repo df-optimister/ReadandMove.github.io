@@ -1,3 +1,8 @@
+---
+layout: single
+title:  "EURO 2024 Finals Analytics"
+---
+
 #**Install relevant packages**
 
 
