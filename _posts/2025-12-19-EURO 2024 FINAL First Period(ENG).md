@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "EURO 2024 Finals Analytics"
+title:  "EURO 2024 Finals Analytics Period 1 (ENG)"
 ---
 
 #**Install relevant packages**
@@ -53,7 +53,7 @@ free_comps
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -309,7 +309,7 @@ events_df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -546,7 +546,7 @@ print(events_df['possession'].unique())
      113 114 115 117 119 120 121 122 123 124 125 126 127 128 129 130 132 133
      134 135 136 137 138 139 140 141 142 143 144 145 146 147  71 131 118  45
       76 116  55]
-    
+
 
 
 ```python
@@ -565,7 +565,7 @@ events_df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -750,7 +750,7 @@ fp.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -961,7 +961,7 @@ print(t_xg)
     England    0.28
     Spain      0.34
     Name: shot_statsbomb_xg, dtype: float64
-    
+
 
 #**England‘s Passsing Map**
 
@@ -1085,9 +1085,9 @@ plt.savefig(f"England Passing Map {period}.png",dpi=200, bbox_inches="tight")
 ```
 
 
-    
+​    
 ![png](output_19_0.png)
-    
+​    
 
 
 
@@ -1216,9 +1216,9 @@ plt.savefig(f"England Passing Map {period}.png", dpi=200, bbox_inches="tight")
 ```
 
 
-    
+​    
 ![png](output_21_0.png)
-    
+​    
 
 
 
@@ -1277,7 +1277,7 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Jude Bellingham                 10            15         66.67
     Declan Rice                     11            18         61.11
     Harry Kane                       5            10         50.00
-    
+
 
 #**Spain‘s Passsing Sucess Rates**
 
@@ -1331,7 +1331,7 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Daniel Olmo Carvajal                         10            13         76.92
     Lamine Yamal Nasraoui Ebana                  13            22         59.09
     Álvaro Borja Morata Martín                    8            14         57.14
-    
+
 
 #**England’s Pass Failed Endpoints**
 
@@ -1373,9 +1373,9 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 ```
 
 
-    
+​    
 ![png](output_27_0.png)
-    
+​    
 
 
 
@@ -1422,9 +1422,9 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 ```
 
 
-    
+​    
 ![png](output_29_0.png)
-    
+​    
 
 
 
@@ -1501,7 +1501,7 @@ print(spa_duel_stat)
     Daniel Olmo Carvajal               1.0        2.0              33.33  Spain
     Álvaro Borja Morata Martín         1.0        3.0              25.00  Spain
     Rodrigo Hernández Cascante         0.0        1.0               0.00  Spain
-    
+
 
 #**Duel Success Rates**
 
@@ -1535,7 +1535,7 @@ print(duel_stat.head(30))
     team                                           
     Spain           9         11               45.0
     England         9         16               36.0
-    
+
 
 #**Dribble Stats**
 
@@ -1586,7 +1586,7 @@ print(spa_dribble_stat.head(20))
     Fabián Ruiz Peña                              0.0  Spain  
     Lamine Yamal Nasraoui Ebana                   0.0  Spain  
     Álvaro Borja Morata Martín                    0.0  Spain  
-    
+
 
 
 ```python
@@ -1636,7 +1636,7 @@ print('-------------------------------------------------------------------------
     player                           
     Martín Zubimendi Ibáñez       0  
     ---------------------------------------------------------------------------
-    
+
 
     C:\Users\HP\AppData\Local\Temp\ipykernel_25868\1330070284.py:4: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
       eng_duel_one = eng_duel_stat.reindex([eng_player]).fillna(0)
@@ -1644,7 +1644,7 @@ print('-------------------------------------------------------------------------
       spa_duel_one = spa_duel_stat.reindex([spa_player]).fillna(0)
     C:\Users\HP\AppData\Local\Temp\ipykernel_25868\1330070284.py:8: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
       spa_dribble_one = spa_dribble_stat.reindex([spa_player]).fillna(0)
-    
+
 
 
 ```python
