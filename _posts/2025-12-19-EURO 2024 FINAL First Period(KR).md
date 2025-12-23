@@ -1,509 +1,7 @@
-#**Install relevant packages**
+layout: single
+title:  "EURO 2024 Finals Analytics"
 
-
-```python
-%%capture
-!pip install statsbombpy
-!pip install mplsoccer
-!pip install highlight_text
-```
-
-#**Import packages**
-
-
-```python
-%%capture
-from statsbombpy import sb
-import pandas as pd
-import numpy as np
-from mplsoccer import VerticalPitch,Pitch
-from highlight_text import ax_text, fig_text
-from matplotlib.colors import LinearSegmentedColormap
-import matplotlib.pyplot as plt
-import matplotlib.patheffects as path_effects
-from matplotlib.lines import Line2D
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-import seaborn as sns
-```
-
-#**Import API's**
-
-
-```python
-#Call Statsbombpy API
-free_comps = sb.competitions()
-#Print a list of free competitions
-free_comps
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>competition_id</th>
-      <th>season_id</th>
-      <th>country_name</th>
-      <th>competition_name</th>
-      <th>competition_gender</th>
-      <th>competition_youth</th>
-      <th>competition_international</th>
-      <th>season_name</th>
-      <th>match_updated</th>
-      <th>match_updated_360</th>
-      <th>match_available_360</th>
-      <th>match_available</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9</td>
-      <td>281</td>
-      <td>Germany</td>
-      <td>1. Bundesliga</td>
-      <td>male</td>
-      <td>False</td>
-      <td>False</td>
-      <td>2023/2024</td>
-      <td>2024-09-28T20:46:38.893391</td>
-      <td>2025-07-06T04:26:07.636270</td>
-      <td>2025-07-06T04:26:07.636270</td>
-      <td>2024-09-28T20:46:38.893391</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>27</td>
-      <td>Germany</td>
-      <td>1. Bundesliga</td>
-      <td>male</td>
-      <td>False</td>
-      <td>False</td>
-      <td>2015/2016</td>
-      <td>2024-05-19T11:11:14.192381</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2024-05-19T11:11:14.192381</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1267</td>
-      <td>107</td>
-      <td>Africa</td>
-      <td>African Cup of Nations</td>
-      <td>male</td>
-      <td>False</td>
-      <td>True</td>
-      <td>2023</td>
-      <td>2024-09-28T01:57:35.846538</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2024-09-28T01:57:35.846538</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>16</td>
-      <td>4</td>
-      <td>Europe</td>
-      <td>Champions League</td>
-      <td>male</td>
-      <td>False</td>
-      <td>False</td>
-      <td>2018/2019</td>
-      <td>2025-05-08T15:10:50.835274</td>
-      <td>2021-06-13T16:17:31.694</td>
-      <td>None</td>
-      <td>2025-05-08T15:10:50.835274</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>16</td>
-      <td>1</td>
-      <td>Europe</td>
-      <td>Champions League</td>
-      <td>male</td>
-      <td>False</td>
-      <td>False</td>
-      <td>2017/2018</td>
-      <td>2024-02-13T02:35:28.134882</td>
-      <td>2021-06-13T16:17:31.694</td>
-      <td>None</td>
-      <td>2024-02-13T02:35:28.134882</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>35</td>
-      <td>75</td>
-      <td>Europe</td>
-      <td>UEFA Europa League</td>
-      <td>male</td>
-      <td>False</td>
-      <td>False</td>
-      <td>1988/1989</td>
-      <td>2024-02-12T14:45:05.702250</td>
-      <td>2021-06-13T16:17:31.694</td>
-      <td>None</td>
-      <td>2024-02-12T14:45:05.702250</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>53</td>
-      <td>315</td>
-      <td>Europe</td>
-      <td>UEFA Women's Euro</td>
-      <td>female</td>
-      <td>False</td>
-      <td>True</td>
-      <td>2025</td>
-      <td>2025-07-28T14:19:20.467348</td>
-      <td>2025-07-29T16:03:07.355174</td>
-      <td>2025-07-29T16:03:07.355174</td>
-      <td>2025-07-28T14:19:20.467348</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>53</td>
-      <td>106</td>
-      <td>Europe</td>
-      <td>UEFA Women's Euro</td>
-      <td>female</td>
-      <td>False</td>
-      <td>True</td>
-      <td>2022</td>
-      <td>2024-02-13T13:27:17.178263</td>
-      <td>2024-02-13T13:30:52.820588</td>
-      <td>2024-02-13T13:30:52.820588</td>
-      <td>2024-02-13T13:27:17.178263</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>72</td>
-      <td>107</td>
-      <td>International</td>
-      <td>Women's World Cup</td>
-      <td>female</td>
-      <td>False</td>
-      <td>True</td>
-      <td>2023</td>
-      <td>2025-07-14T10:07:06.620906</td>
-      <td>2025-07-14T10:10:27.224586</td>
-      <td>2025-07-14T10:10:27.224586</td>
-      <td>2025-07-14T10:07:06.620906</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>72</td>
-      <td>30</td>
-      <td>International</td>
-      <td>Women's World Cup</td>
-      <td>female</td>
-      <td>False</td>
-      <td>True</td>
-      <td>2019</td>
-      <td>2024-08-08T15:57:56.748740</td>
-      <td>2021-06-13T16:17:31.694</td>
-      <td>None</td>
-      <td>2024-08-08T15:57:56.748740</td>
-    </tr>
-  </tbody>
-</table>
-<p>75 rows × 12 columns</p>
-</div>
-
-
-
-
-```python
-#call the statsbombpy API to get a list of matches for a given competition
-#Euro 2024 competition id, season id
-#competition_id=55, season_id=282
-euro_2024_matches = sb.matches(competition_id=55, season_id=282)
-
-row_count = len(euro_2024_matches)
-
-row_count
-```
-
-
-
-
-    51
-
-
-
-
-```python
-#create a variable for the team you want to look into
-team="England"
-
-#filter for only matches that the focus team played in
-matches_df = euro_2024_matches[(euro_2024_matches['home_team'] == team)|(euro_2024_matches['away_team'] == team)]
-
-#sort by match date to get the most recent match
-matches_df=matches_df.sort_values(by='match_date', ascending=False)
-```
-
-
-```python
-#create a variable containing the first match id in the data frame
-latest_match_id = matches_df.match_id.iloc[0]
-
-#latest_match_id=3943043
-```
-
-
-```python
-#call the statsbombpy events API to bring in the event data for the match
-events_df = sb.events(match_id=latest_match_id)
-
-
-events_df.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>50_50</th>
-      <th>ball_receipt_outcome</th>
-      <th>ball_recovery_recovery_failure</th>
-      <th>block_deflection</th>
-      <th>block_offensive</th>
-      <th>block_save_block</th>
-      <th>carry_end_location</th>
-      <th>clearance_aerial_won</th>
-      <th>clearance_body_part</th>
-      <th>clearance_head</th>
-      <th>...</th>
-      <th>substitution_outcome</th>
-      <th>substitution_outcome_id</th>
-      <th>substitution_replacement</th>
-      <th>substitution_replacement_id</th>
-      <th>tactics</th>
-      <th>team</th>
-      <th>team_id</th>
-      <th>timestamp</th>
-      <th>type</th>
-      <th>under_pressure</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>{'formation': 4231, 'lineup': [{'player': {'id...</td>
-      <td>Spain</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>{'formation': 4231, 'lineup': [{'player': {'id...</td>
-      <td>England</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>England</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Spain</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>England</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 92 columns</p>
-</div>
-
-
-
-
-```python
-#print a list of columns available in the event data
-events_df.columns
-```
-
-
-
-
-    Index(['50_50', 'ball_receipt_outcome', 'ball_recovery_recovery_failure',
-           'block_deflection', 'block_offensive', 'block_save_block',
-           'carry_end_location', 'clearance_aerial_won', 'clearance_body_part',
-           'clearance_head', 'clearance_left_foot', 'clearance_right_foot',
-           'counterpress', 'dribble_nutmeg', 'dribble_outcome', 'dribble_overrun',
-           'duel_outcome', 'duel_type', 'duration', 'foul_committed_advantage',
-           'foul_committed_card', 'foul_committed_offensive', 'foul_won_advantage',
-           'foul_won_defensive', 'goalkeeper_body_part', 'goalkeeper_end_location',
-           'goalkeeper_outcome', 'goalkeeper_position', 'goalkeeper_technique',
-           'goalkeeper_type', 'id', 'index', 'injury_stoppage_in_chain',
-           'interception_outcome', 'location', 'match_id', 'minute', 'off_camera',
-           'out', 'pass_aerial_won', 'pass_angle', 'pass_assisted_shot_id',
-           'pass_body_part', 'pass_cross', 'pass_cut_back', 'pass_end_location',
-           'pass_goal_assist', 'pass_height', 'pass_inswinging', 'pass_length',
-           'pass_no_touch', 'pass_outcome', 'pass_outswinging', 'pass_recipient',
-           'pass_recipient_id', 'pass_shot_assist', 'pass_switch',
-           'pass_technique', 'pass_through_ball', 'pass_type', 'period',
-           'play_pattern', 'player', 'player_id', 'position', 'possession',
-           'possession_team', 'possession_team_id', 'related_events', 'second',
-           'shot_aerial_won', 'shot_body_part', 'shot_deflected',
-           'shot_end_location', 'shot_first_time', 'shot_freeze_frame',
-           'shot_key_pass_id', 'shot_one_on_one', 'shot_outcome',
-           'shot_statsbomb_xg', 'shot_technique', 'shot_type',
-           'substitution_outcome', 'substitution_outcome_id',
-           'substitution_replacement', 'substitution_replacement_id', 'tactics',
-           'team', 'team_id', 'timestamp', 'type', 'under_pressure'],
-          dtype='object')
-
-
-
-#**Preprocessing**
+**Preprocessing**
 
 
 ```python
@@ -512,213 +10,6 @@ events_df[['x', 'y']] = events_df['location'].apply(pd.Series)
 events_df[['pass_end_x', 'pass_end_y']] = events_df['pass_end_location'].apply(pd.Series)
 events_df[['carry_end_x', 'carry_end_y']] = events_df['carry_end_location'].apply(pd.Series)
 ```
-
-
-```python
-print(events_df['pass_outcome'].unique())
-print(events_df['duel_outcome'].unique())
-print(events_df['duel_type'].unique())
-print(events_df['dribble_outcome'].unique())
-print(events_df['position'].unique())
-print(events_df['possession'].unique())
-```
-
-    [nan 'Out' 'Incomplete' 'Unknown' 'Pass Offside']
-    [nan 'Won' 'Success In Play' 'Lost Out' 'Lost In Play' 'Success Out']
-    [nan 'Tackle' 'Aerial Lost']
-    [nan 'Incomplete' 'Complete']
-    [nan 'Right Defensive Midfield' 'Goalkeeper' 'Right Center Back'
-     'Right Back' 'Center Forward' 'Center Attacking Midfield' 'Left Wing'
-     'Left Center Back' 'Left Back' 'Left Defensive Midfield' 'Right Wing'
-     'Right Center Midfield' 'Center Defensive Midfield' 'Left Center Forward'
-     'Right Center Forward']
-    [  1  79   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17
-      18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35
-      36  37  38  39  40  41  42  43  44  46  47  48  49  50  51  52  53  54
-      56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  72  73  74
-      75  77  78  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94
-      95  96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111 112
-     113 114 115 117 119 120 121 122 123 124 125 126 127 128 129 130 132 133
-     134 135 136 137 138 139 140 141 142 143 144 145 146 147  71 131 118  45
-      76 116  55]
-    
-
-
-```python
-events_df.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>50_50</th>
-      <th>ball_receipt_outcome</th>
-      <th>ball_recovery_recovery_failure</th>
-      <th>block_deflection</th>
-      <th>block_offensive</th>
-      <th>block_save_block</th>
-      <th>carry_end_location</th>
-      <th>clearance_aerial_won</th>
-      <th>clearance_body_part</th>
-      <th>clearance_head</th>
-      <th>...</th>
-      <th>team_id</th>
-      <th>timestamp</th>
-      <th>type</th>
-      <th>under_pressure</th>
-      <th>x</th>
-      <th>y</th>
-      <th>pass_end_x</th>
-      <th>pass_end_y</th>
-      <th>carry_end_x</th>
-      <th>carry_end_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 98 columns</p>
-</div>
-
-
 
 
 ```python
@@ -733,179 +24,7 @@ fp = df.sort_values(by='timestamp', ascending=True)
 fp.head()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>50_50</th>
-      <th>ball_receipt_outcome</th>
-      <th>ball_recovery_recovery_failure</th>
-      <th>block_deflection</th>
-      <th>block_offensive</th>
-      <th>block_save_block</th>
-      <th>carry_end_location</th>
-      <th>clearance_aerial_won</th>
-      <th>clearance_body_part</th>
-      <th>clearance_head</th>
-      <th>...</th>
-      <th>team_id</th>
-      <th>timestamp</th>
-      <th>type</th>
-      <th>under_pressure</th>
-      <th>x</th>
-      <th>y</th>
-      <th>pass_end_x</th>
-      <th>pass_end_y</th>
-      <th>carry_end_x</th>
-      <th>carry_end_y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Starting XI</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>772</td>
-      <td>00:00:00.000</td>
-      <td>Half Start</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>768</td>
-      <td>00:00:00.340</td>
-      <td>Pass</td>
-      <td>NaN</td>
-      <td>60.0</td>
-      <td>40.0</td>
-      <td>25.4</td>
-      <td>38.8</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 98 columns</p>
-</div>
-
-
-
-#**Player & Team xG**
+**Player & Team xG**
 
 
 ```python
@@ -956,9 +75,8 @@ print(t_xg)
     England    0.28
     Spain      0.34
     Name: shot_statsbomb_xg, dtype: float64
-    
 
-#**England‘s Passsing Map**
+**England‘s Passsing Map**
 
 
 ```python
@@ -1081,7 +199,6 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 ```
 
 
-    
 ![png](output_19_0.png)
     
 
@@ -1089,8 +206,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 
     <Figure size 640x480 with 0 Axes>
 
-
-#**Spain’s Passing Map**
+**Spain’s Passing Map**
 
 
 ```python
@@ -1213,16 +329,15 @@ plt.savefig(f"Spain Passing Map {period}.png", dpi=200, bbox_inches="tight")
 ```
 
 
-    
+​    
 ![png](output_21_0.png)
-    
+​    
 
 
 
     <Figure size 640x480 with 0 Axes>
 
-
-#**England‘s Passsing Sucess Rates**
+**England‘s Passsing Sucess Rates**
 
 
 ```python
@@ -1274,9 +389,8 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Jude Bellingham                 10            15         66.67
     Declan Rice                     11            18         61.11
     Harry Kane                       5            10         50.00
-    
 
-#**Spain‘s Passsing Sucess Rates**
+**Spain‘s Passsing Sucess Rates**
 
 
 ```python
@@ -1328,9 +442,8 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Daniel Olmo Carvajal                         10            13         76.92
     Lamine Yamal Nasraoui Ebana                  13            22         59.09
     Álvaro Borja Morata Martín                    8            14         57.14
-    
 
-#**England’s Pass Failed Endpoints**
+**England’s Pass Failed Endpoints**
 
 
 ```python
@@ -1370,16 +483,15 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 ```
 
 
-    
+​    
 ![png](output_27_0.png)
-    
+​    
 
 
 
     <Figure size 640x480 with 0 Axes>
 
-
-#**Spain’s Pass Failed Endpoints**
+**Spain’s Pass Failed Endpoints**
 
 
 ```python
@@ -1419,16 +531,15 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 ```
 
 
-    
+​    
 ![png](output_29_0.png)
-    
+​    
 
 
 
     <Figure size 640x480 with 0 Axes>
 
-
-#**Duel Stats**
+**Duel Stats**
 
 
 ```python
@@ -1498,9 +609,8 @@ print(spa_duel_stat)
     Daniel Olmo Carvajal               1.0        2.0              33.33  Spain
     Álvaro Borja Morata Martín         1.0        3.0              25.00  Spain
     Rodrigo Hernández Cascante         0.0        1.0               0.00  Spain
-    
 
-#**Duel Success Rates**
+**Duel Success Rates**
 
 
 ```python
@@ -1532,9 +642,8 @@ print(duel_stat.head(30))
     team                                           
     Spain           9         11               45.0
     England         9         16               36.0
-    
 
-#**Dribble Stats**
+**Dribble Stats**
 
 
 ```python
@@ -1583,73 +692,11 @@ print(spa_dribble_stat.head(20))
     Fabián Ruiz Peña                              0.0  Spain  
     Lamine Yamal Nasraoui Ebana                   0.0  Spain  
     Álvaro Borja Morata Martín                    0.0  Spain  
-    
 
 
-```python
-eng_player = 'Declan Rice'
-spa_player = 'Martín Zubimendi Ibáñez'
-
-eng_duel_one = eng_duel_stat.reindex([eng_player]).fillna(0)
-spa_duel_one = spa_duel_stat.reindex([spa_player]).fillna(0)
-
-eng_dribble_one = eng_dribble_stat.reindex([eng_player]).fillna(0)
-spa_dribble_one = spa_dribble_stat.reindex([spa_player]).fillna(0)
-
-eng_stat = eng_duel_one.merge(eng_dribble_one, left_index=True, right_index=True, how='left')
-spa_stat = spa_duel_one.merge(spa_dribble_one, left_index=True, right_index=True, how='left')
-
-print('First Period Player Stats Comparison')
-print('---------------------------------------------------------------------------')
-print(f'{eng_player} Stats:')
-print(eng_stat)
-print('---------------------------------------------------------------------------')
-print(f'{spa_player} Stats:')
-print(spa_stat)
-print('---------------------------------------------------------------------------')
-```
-
-    First Period Player Stats Comparison
-    ---------------------------------------------------------------------------
-    Declan Rice Stats:
-                 Duel Won  Duel Lost  Duel Success Rate  team_x  Dribble Success  \
-    player                                                                         
-    Declan Rice       0.0        0.0                0.0       0              1.0   
-    
-                 Dribble Fail  Dribble Success Rate   team_y  
-    player                                                    
-    Declan Rice           1.0                  50.0  England  
-    ---------------------------------------------------------------------------
-    Martín Zubimendi Ibáñez Stats:
-                             Duel Won  Duel Lost  Duel Success Rate  team_x  \
-    player                                                                    
-    Martín Zubimendi Ibáñez       0.0        0.0                0.0       0   
-    
-                             Dribble Success  Dribble Fail  Dribble Success Rate  \
-    player                                                                         
-    Martín Zubimendi Ibáñez              0.0           0.0                   0.0   
-    
-                             team_y  
-    player                           
-    Martín Zubimendi Ibáñez       0  
-    ---------------------------------------------------------------------------
-    
-
-    C:\Users\HP\AppData\Local\Temp\ipykernel_25868\1330070284.py:4: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-      eng_duel_one = eng_duel_stat.reindex([eng_player]).fillna(0)
-    C:\Users\HP\AppData\Local\Temp\ipykernel_25868\1330070284.py:5: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-      spa_duel_one = spa_duel_stat.reindex([spa_player]).fillna(0)
-    C:\Users\HP\AppData\Local\Temp\ipykernel_25868\1330070284.py:8: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-      spa_dribble_one = spa_dribble_stat.reindex([spa_player]).fillna(0)
-    
 
 
-```python
-#from google.colab import drive
-#drive.mount('/content/drive')
-```
 
 
-```python
-#!jupyter nbconvert --to markdown "/content/drive/MyDrive/Colab Notebooks/Euro_2024_Final.ipynb"
-```
+
+
