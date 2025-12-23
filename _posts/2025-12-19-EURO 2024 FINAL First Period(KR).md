@@ -1,7 +1,13 @@
 ---
 layout: single
-title:  "EURO 2024 Finals Analytics"
+title:  "EURO 2024 Finals Analytics Period 1 (KOR)"
 ---
+
+**Introduction**
+
+이 글은 Statsbomb API를 통한 데이터와 중계 영상 분석에 기반해 잉글랜드와 스페인이 맞붙은 EURO 2024 결승전을 다룹니다. 본격적으로 경기 영상을 분석하기에 앞서, 먼저 데이터와 시각화 자료를 간단히 살펴보며 경기의 흐름을 미리 짚어보고, 이를 바탕으로 몇 가지 질문을 던져보고자 합니다.
+
+이후 이어지는 영상 분석 파트에서는 앞서 제기한 질문들에 답하는 데 초점을 맞춰 설명하겠습니다.
 
 **Preprocessing**
 
@@ -33,21 +39,21 @@ fp.head()
 # 페널티 제외
 df1 = fp[fp['shot_type'] != 'Penalty'].copy()
 
-# --- 선수별 xG 합계 ---
+# 선수별 xG 합계
 p_xg = df1.groupby('player')['shot_statsbomb_xg'].sum().round(2)
 
-# --- 선수별 슈팅 횟수 (결측이 아닌 shot_outcome만 카운트) ---
+# 선수별 슈팅 횟수 (결측이 아닌 shot_outcome만 카운트)
 p_shots = df1[df1['shot_outcome'].notna()].groupby('player').size()
 
-# --- 두 결과를 하나로 합치기 ---
+# 두 결과 합치기
 p_stats = pd.concat([p_xg, p_shots], axis=1)
 p_stats.columns = ['xG_sum', 'Shots']
 p_stats = p_stats.sort_values('xG_sum', ascending=False)
 
-# --- 팀별 xG ---
+# 팀별 xG
 t_xg = df1.groupby('team')['shot_statsbomb_xg'].sum().round(2)
 
-# --- 출력 ---
+# 출력
 print(f'Player & Team xG in {sel_period} Period')
 print('-----------------------------------------------')
 print(p_stats.head(12))
@@ -85,7 +91,7 @@ print(t_xg)
 TEAM_NAME = 'England'
 TEAM_COLOR = 'white' #darkred or white
 
-# --- 데이터 전처리 ---
+# 데이터 전처리
 df = fp.copy()
 
 # 좌표와 id만 숫자로, outcome들은 문자열 그대로 두기
@@ -215,7 +221,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 TEAM_NAME = 'Spain'
 TEAM_COLOR = 'darkred' #darked or white
 
-# --- 데이터 전처리 ---
+# 데이터 전처리
 df = fp.copy()
 
 # 좌표와 id만 숫자로, outcome들은 문자열 그대로 두기
@@ -694,7 +700,6 @@ print(spa_dribble_stat.head(20))
     Fabián Ruiz Peña                              0.0  Spain  
     Lamine Yamal Nasraoui Ebana                   0.0  Spain  
     Álvaro Borja Morata Martín                    0.0  Spain  
-
 
 
 
