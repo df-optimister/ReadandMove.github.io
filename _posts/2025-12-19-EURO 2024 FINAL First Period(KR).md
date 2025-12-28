@@ -2,6 +2,7 @@
 layout: single
 title:  "EURO 2024 Finals Analytics Period 1 (KOR)"
 categories: [Football Analysis (KOR)]
+tag: [EURO 2024]
 ---
 
 **Introduction**
