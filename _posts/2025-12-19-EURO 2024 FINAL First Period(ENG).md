@@ -1,13 +1,13 @@
 ---
 layout: single
-title:  "EURO 2024 Finals Analytics Period 1 (KOR)"
+title:  "EURO 2024 Finals Analytics Period 1 (ENG)"
 ---
 
 **Introduction**
 
-이 글은 Statsbomb API를 통한 데이터와 중계 영상 분석에 기반해 잉글랜드와 스페인이 맞붙은 EURO 2024 결승전을 다룹니다. 본격적으로 경기 영상을 분석하기에 앞서, 먼저 데이터와 시각화 자료를 간단히 살펴보며 경기의 흐름을 미리 짚어보고, 이를 바탕으로 몇 가지 질문을 던져보고자 합니다.
+In this paper, we discuss the EURO 2024 Final between England and Spain. Before analysing the match video, a brief discussion of the data and visualisation comes first. The data and visualisation review in advance aims to preview the match and raise questions based on the review.
 
-이후 이어지는 영상 분석 파트에서는 앞서 제기한 질문들에 답하는 데 초점을 맞춰 설명하겠습니다.
+The following video analysis shall focus on answering the raised questions.
 
 **Preprocessing**
 
@@ -236,9 +236,7 @@ Lamine Yamal Nasraoui Ebana                   0.0  Spain
 Álvaro Borja Morata Martín                    0.0  Spain  
 ```
 
-전반전의 xG를 보면 양 팀 모두 본격적인 결정력을 보여주기보다는 탐색전 성격이 강했다고 볼 수 있습니다. 잉글랜드는 0.28, 스페인은 그보다 약간 높은 0.34를 기록했지만, 둘 다 1 이하의 수치이기 때문에 사실상 ***위협적인 찬스를 만들어냈다고 보기는 어렵습니다.***
-
-경합 성공률을 보면 스페인이 우위를 점했습니다. 스페인은 총 20번의 경합 중 9번을 성공하며 45%를 기록했고, 잉글랜드는 25번 중 9번 성공으로 36%에 그쳤습니다. 여기서 말하는 경합은 공중볼 경합과 태클 경합을 모두 포함합니다.
+According to the xG from the first period, it seems to be more of a probing action. England showed 0.28, while Spain was higher at 0.34. However, it is a nuance, and as both teams’ expected goals are under 1, describing neither team created a potent goal-scoring chance. In terms of duel success, Spain had the advantage, winning 9 out of 20 (45%), while England won 9 out of 25 (36%). The duels include aerial and tackle duels. 
 
 **England‘s Passing Map**
 
@@ -458,17 +456,13 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 ![output_27_0](./../images/2025-12-03-Euro2024Final/output_27_0.png)
 
-잉글랜드의 패싱 맵을 보면 빌드업은 골키퍼부터 시작되는 흐름이었습니다. 조던 픽포드가 팀 내 두 번째로 많은 19개의 패스를 기록한 점을 보면, ***골키퍼를 적극적으로 빌드업에 포함시켜 숫적 우위를 만들고자 했던 의도가 읽힙니다.***
+According to the Passing Map of England, the build-up starts with the Goalkeeper. It can be inferred that the team aimed to include the Goalkeeper in the build-up to gain numerical advantage, as Jordan Pickford made the second-highest number of passes in the team with 19. 
 
-또한 시각화에서 선수 위치 원의 크기가 보여주듯이 점유는 주로 오른쪽에서 유지되었습니다. 좌측 조합, 즉 마크 게히, 루크 쇼, 주드 벨링엄이 만든 패스는 팀 전체 150개 중 34개였던 반면, 우측의 존 스톤스, 카일 워커, 부카요 사카는 47개의 패스를 기록하며 시각화에서 예측된 흐름을 확인시켜 줍니다.
+In terms of possession, which was kept on the right side, as shown by the size of the player's position circle. Regarding the left (Marc Guehi, Luke Shaw, and Jude Bellingham) and right (John Stones, Kyle Walker, Bukayo Saka) side players, the left side accounted for 34 of the team's 150 passes. In contrast, the right side made 47 passes, confirming the assumption based on visualisation. 
 
-여기에 더해 미드필더 세 명 중 두 명, 필 포든과 코비 마이누의 평균 위치도 오른쪽으로 기울어 있었기 때문에 ***우측에 더 많은 인원을 배치하려는 전략적 의도***가 분명하게 드러납니다.
+In addition, more manpower was invested, as two of the three midfielders' average positions leaned toward the right (Phil Foden and Kobbie Mainoo). Based on the up-to-date preview of the data and visualisation, it raised two questions. Was the overloaded right-side attack effective? Were the mid and left side attacks efficient? 
 
-이러한 데이터와 시각화를 바탕으로 두 가지 질문이 생깁니다.
- 첫 번째, ***우측에 과밀하게 배치한 공격이 실제로 효과적이었는가**.*
- 두 번째, ***중앙과 아이솔레이션 전술을 적용한 좌측 공격은 효율적이었는가**.*
-
-이후 이어지는 스페인의 전반전 프리뷰에서는 이 질문들을 중심으로 분석을 전개해 보겠습니다.
+In the following preview of Spain’s first period, the raised questions shall be developed. 
 
 **Spain’s Passing Map**
 
@@ -688,59 +682,55 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 ![output_29_0](./../images/2025-12-03-Euro2024Final/output_29_0.png)
 
-스페인의 패싱 맵을 보면, 빌드업은 주로 두 센터백에서 시작되는 흐름이었습니다. 잉글랜드는 두 풀백을 거의 윙어처럼 전진 배치하는 경향이 있었기 때문에, ***센터백 둘이 압박에 고스란히 노출되지 않도록 골키퍼가 빌드업에 적극 관여하는 것이 필수적이었죠.***
+According to the Spain Passing Map, the build-up mostly starts from the two centre-backs. England used to let both full-backs in the front, almost like the wingers. Therefore, it was necessary to involve the goalkeeper in the build-up so that the two centre-backs were not solely exposed to pressure. On the other hand, Spain’s goalkeeper was not actively involved in the build-up as Unai Simon Mendibil only progressed 18 passes, while the two centre-backs' average pass total is 49.5 (Figure 9). Furthermore, Spain adopted an inverted full-back system. Putting the left fullback in the front while the right fullback stays behind to take on the role of the third centre-back. The midfielders were also leaning to the left. Consequently, it could be inferred that Spain has overloaded midfielders toward the left side to go aggressively, which corresponds with the left fullback’s progress. Another reason for midfielders’ leaning toward the left is one way to counter England’s attacking strategy. In the visualisation, all teams progress left to right to simplify it for viewers. 
 
-반면 스페인은 상황이 조금 달랐습니다. 우나이 시몬 골키퍼는 빌드업에 적극적으로 관여하지 않았고, 단 18개의 패스만 전개했습니다. 이에 비해 두 센터백의 평균 패스 숫자는 49.5개로 크게 높습니다. 또 스페인은 ***인버티드 풀백 시스템***을 사용했습니다. 즉, 왼쪽 풀백은 전진 배치하고 오른쪽 풀백은 뒤에 머물며 사실상 세 번째 센터백 역할을 맡는 구조입니다.
+In reality, England progresses toward the right and Spain toward the left. As previously mentioned, England chose to take advantage of numbers on the right side of the attack, forcing both teams to maximise players on the same side. Spain was able to isolate the right side thanks to their decent winger, Lamine Yamal. 
 
-미드필더들의 평균 위치도 왼쪽으로 기울어 있었고, 이를 종합해 보면 스페인은 ***왼쪽에서 공격적으로 나가기 위해 중원 자원을 집중적으로 배치하려 했다는 점***을 유추할 수 있습니다. 이 움직임은 동시에 잉글랜드의 공격 전략을 억제하기 위한 대응일 수도 있습니다..
+To sum up, England and Spain both chose one side as their primary attack route, which turns out to be the same space. Therefore, it is expected to be the most significant battleground. Another viewpoint is that the isolated side attack was effective. Referring to the failed pass endpoints and pass metrics, both isolated wingers had around 60 per cent of pass success rate, which corresponds with the pass failed points being more focused on each team’s isolated sides. 
 
-시각화에서는 이해를 돕기 위해 양 팀 모두 왼쪽에서 오른쪽으로 진행하는 것처럼 표현되지만, 실제 경기에서는 잉글랜드가 오른쪽으로, 스페인은 왼쪽으로 공격을 전개했습니다. 앞서 언급했듯 잉글랜드는 우측에서의 숫적 우위를 노렸고, 그에 맞춰 양 팀 모두 같은 공간에 더 많은 선수를 배치할 수밖에 없는 구조가 만들어졌습니다.
+In conclusion, the main question to be answered by the video analysis is: First, how did the particular team win the overloaded side? Second, which isolated sides' attacks were more effective, and how? 
 
-스페인은 여기에 더해 ***라민 야말이라는 뛰어난 우측 윙어***가 있었기 때문에 자신들의 우측을 의도적으로 고립시키는 전술적 움직임을 가져갈 수 있었습니다.
-
-정리하자면, 잉글랜드와 스페인은 모두 한쪽 측면을 주된 공격 루트로 설정했고, 공교롭게도 그 공간이 동일했습니다. 따라서 이 지역이 경기의 핵심 전장이 될 것이라는 예측이 가능합니다.
-
-또 하나의 관점은, ***고립된 측면 공격이 실제로 효과적이었는가*** 하는 점입니다. 패스 실패 지점과 패스 지표를 보면, 양 팀의 고립된 윙어들은 모두 약 60퍼센트의 패스 성공률을 기록했으며, 이는 시각화된 패스 실패 지점이 각각의 고립된 공간에 집중되어 나타난 것과 일치합니다.
-
-결국 영상 분석에서 답해야 할 핵심 질문은 두 가지입니다.
- 첫 번째, ***양 팀은 어떻게 과부하가 걸린 측면 싸움에서 우위를 가져갔는가**.*
- 두 번째, ***양 팀의 고립된 측면 공격 중 어느 쪽이 더 효율적이었으며, 그 이유는 무엇인가**.*
-
-이 두 질문에 답하게 되면, 전반적으로 양 팀의 낮은 xG와 제한적인 슈팅 시도에 대한 의문도 자연스럽게 해소될 것입니다.
+Answering the two questions shall bring us closer to the answers to all the doubts related to low xG and shot attempts of both teams. 
 
 **Video Analysis**
 
 ![image-20251223164735656](./../images/2025-12-03-Euro2024Final/image-20251223164735656.png)
 
-위의 장면처럼, 전반전에는 영국측은 조심스럽게 경기에 임했고 압박을 통해 상대가 상대 진영에서 볼을 탈취하기 보다는 위의 사진처럼 중앙 선수들을 맨마킹을 통해 ***중앙을 봉쇄하고 상대를 측면으로 유도***합니다. 
+In the first half, England approached the game in a cautious manner. Rather than pressing aggressively to win the ball high up the pitch, they focused on man-marking central players, as shown in the image above, effectively blocking the central areas and deliberately guiding the opponent toward the wide areas.
 
 ![장면 0](./../images/2025-12-03-Euro2024Final/장면 0.png)
 
-반면, 처음에 스페인측은 빌드업시에 로드리가 포백이 넓이를 주고 벌리고 로드리는 중앙으로 내려와 볼 배급을 도와주려는 했지만 언급했듯이 잉글랜드 진영에서 헤리 케인과 필 포든이 적극적으로 마킹을 하며 빌드업을 방해하는 양상을 띕니다. 다음 장면에서 나오는, 이에 대응하기 위한 로드리 선수의 포지셔닝이 굉장히 인상적입니다. 로드리는 포든의 맨마킹을 떨치기 위해 ***센터백 라인까지 내려와 빌드업에 관여***하기를 선택했고 이를 통해 아래의 장면처럼 ***중앙에서 2대 3대의 상황을 발생***시켜 상대가 쉽사리 압박하지 못하게 했고 자연스럽게 점유율을 늘립니다.
+In contrast, during the early phases of Spain’s build-up, Rodri initially attempted to support circulation by dropping into central areas while the back four spread wide to provide width. However, as mentioned earlier, England disrupted this structure, with Harry Kane and Phil Foden actively applying man-oriented pressure to disrupt Spain’s build-up.
+
+In the following sequence, Rodri’s positioning in response to this pressure is particularly impressive. To shake off Foden’s man-marking, Rodri chose to drop all the way into the centre-back line and directly involve himself in the build-up. By doing so, as illustrated in the scene below, Spain was able to create temporary 3v2 situations in central areas, making it difficult for England to press effectively and, as a result, naturally increasing their share of possession.
 
 ![장면 2-1](./../images/2025-12-03-Euro2024Final/장면 2-1.png)
 
-위 장면에서는 로드리 선수가 우측 풀백인 카르바할 선수가 위쪽으로 이동한 지역으로 내려가 마치 쓰리백의 우측 센터백처럼 위치하는 장면입니다. 이 포지셔닝은 이 영국의 중앙을 사수하기 위한 투자를 역이용할 수 있는 움직임입니다. 두 선수가 중앙에 위치해 있기 때문에 로드리가 공을 몰고 카르바할쪽으로 전진할 경우 순간적으로 상대 ***윙어인 벨링엄과 2대1 상황이 발생***하고 이를 통해 보다 수월하게 상대 진영으로 전진할 수 있고 이와 비슷한 장면이 지속적으로 발생합니다.
+In this sequence, Rodri drops into the space vacated by the right full-back, Carvajal, who has moved higher up the pitch, positioning himself almost like the right-sided centre-back in a back three. This movement effectively exploits England’s heavy investment in protecting the central areas.
+
+With both of England’s markers drawn into the middle, Rodri can carry the ball forward toward Carvajal’s side, momentarily creating a 2v1 situation against the opposing winger, Bellingham. This allows Spain to progress into the opposition half with greater ease, and similar patterns can be observed repeatedly throughout the first half.
 
 ![장면 1](./../images/2025-12-03-Euro2024Final/장면 1.png)
 
-다른 예로는 위 장면이 있습니다. 영국의 좌측 윙어 벨링엄이 중앙 사이 공간으로 패스가 들어가지 않도록 중앙에 위치의 포든과 케인쪽으로 가까이 붙어 있었고 이를 통해 스페인 우측 풀백 카르바할이 보다 쉽게 공을 받았고 이후 벨링엄이 따라가는 양상입니다. 이때 순간적으로 우측 윙어 야말이 공을 받으러 내려오면서 순간적을 ***벨링엄을 상대로 2대1 상황을 만들어 내고 결과적으로 보다 쉽게 점유***를 이어갑니다. 
+Another example can be seen in the scene above. England’s left winger, Bellingham, positions himself closer to the central area to block passing lanes into the half-spaces, staying tight to Foden and Kane. As a result, Spain’s right full-back, Carvajal, can receive the ball more freely, with Bellingham then forced to track across.
+
+At this moment, the right winger, Yamal, drops toward the ball, instantly creating a 2v1 situation against Bellingham. This movement not only relieves pressure but also allows Spain to maintain possession without disruption.
 
 ![image-20251223165214409](./../images/2025-12-03-Euro2024Final/image-20251223165214409.png)
 
-다음 장면 또한 비슷한 예로, 로드리가 중원에서 두 명 사이에 위치하기 보다 ***쓰리백의 중앙 수비수처럼 내려와*** 상대가 쉽게 압박하지 못하게 하고 ***기존 두 센터백이 각각 좌측 우측으로 움직여 사이드에서 숫적 우위를 점하게 유도***합니다. 
+The following sequence presents a similar pattern. Rather than positioning himself between two midfielders, Rodri drops deeper and operates almost as the central defender in a back three. This makes it difficult for the opponent to apply pressure, while the two original centre-backs shift wider to the left and right, encouraging numerical superiority on the flanks.
 
 ![장면 2](./../images/2025-12-03-Euro2024Final/장면 2.png)
 
-그렇기에 이어지는 장면에서 라포르테가 상대에 압박을 받지 않고 좌측 공간을 향해 전진합니다. 로드리의 빌드업 관여가 고무적인 이유는 위 상황에서 라포르테가 빠르게 쿠쿠렐라한테 볼을 전달하고 왼쪽 윙어 니코 윌리엄스가 먼저 내려오고 순간적으로 ***사카를 상대로 2대1 상황이 발생***하기 때문입니다.
+As a result, in the following sequence, Laporte can carry the ball forward into the left-sided space without being put under pressure. Rodri’s involvement in the build-up is particularly encouraging here, as it allows Laporte to circulate the ball to Cucurella quickly. At the same time, the left winger, Nico Williams, drops early to create a momentary 2v1 situation against the marked Saka.
 
 ![장면 3](./../images/2025-12-03-Euro2024Final/장면 3.png)
 
-이 장면에서도 직접 좌측 사이드로 이동해 쿠쿠렐라의 기존 포지션에 위치해 ***쿠쿠렐라가 한 칸 더 전진이 가능하게 하고*** 동시에 센터백의 패스 선택지가 되어 줍니다. 
+In this scene as well, he moves directly into the left-sided channel, occupying Cucurella’s original position. This allows Cucurella to advance one line higher while simultaneously providing the centre-back with an additional passing option.
 
-이런 식으로 스페인은 전반전 내내 비교적 쉽게 볼을 상대 진영으로 전진시킬 수 있었습니다.
+Through these repeated movements, Spain was able to progress the ball into the opposition half with relative ease throughout the first half.
 
-반면에 영국의 경우, 자신들의 시스템에 기반하여 움직이려고 했습니다. 앞서 설명했듯이 중원을 틀어 막고 아래의 연속되는 두 장면처럼 상대를 ***사이드로 유도 후 더블 팀을 붙여 상대를 고립***시킵니다.  
+In contrast, England attempted to operate strictly within their established system. As previously described, they focused on shutting down the central areas and, as shown in the two consecutive sequences below, guided the opponent toward the flanks before applying double-team pressure to isolate the ball carrier.
 
 ![image-20251223165503586](./../images/2025-12-03-Euro2024Final/image-20251223165503586.png)
 
@@ -748,30 +738,38 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 ![그림9](./../images/2025-12-03-Euro2024Final/그림9.png)
 
-또한 빌드업을 거치기 보다는 우측에 하프 라인을 넘은 상대 진영에 선수들을 모아서 경합을 통해 빠르게 상대 진영에서 공을 소유하고자 하는 골기퍼의 골킥이 꽤 많았습니다. 잦은 롱볼 시도로 이전에 언급한 ***픽 포드 골기퍼의 패스 성공률이 68.42%로 비교적 낮을 수 밖에 없는 이유***이기도 합니다. 
+In addition, rather than building up through structured possession, England frequently opted for goal kicks aimed toward the right side of the opposition half, where several players were positioned beyond the halfway line to contest second balls and quickly regain possession high up the pitch. This reliance on long balls also helps explain why Jordan Pickford’s pass completion rate, previously noted at 68.42 per cent, was relatively low.
 
 ![그림10](./../images/2025-12-03-Euro2024Final/그림10.png)
 
-위 장면은 골킥이 아닌 후방에서부터 빌드업을 할 경우에는 골키퍼를 올려 스페인과 비슷하게 3명의 인원으로 빌드업 시도합니다. 다만 ***차이점이 있다면 선수간 간격이 훨씬 넓습니다.***
+In this sequence, when England chose to build up from the back rather than from a goal kick, the goalkeeper stepped higher to form a three-man build-up structure, similar to Spain’s approach. However, a key difference lies in the much wider spacing between the players.
 
-이에 대해 ***스페인은 영국과는 다르게 타이트한 압박 기조***를 보여줍니다. 위 장면에서는 넓은 영국 진영의 간격이 공략 당하는 장면입니다. 스페인 최전방 공격수가 볼을 가진 선수를 압박 후 ***패스 라인을 막고 한 쪽 측면으로 몰아 넣은 뒤 맨마킹 형식으로 압박을 걸고 볼 탈취를 시도***합니다. 
+In response, Spain adopted a markedly tighter pressing approach compared to England. The striker applied pressure to the ball carrier while blocking passing lanes, before forcing play toward one flank and then engaging in man-oriented pressing to attempt ball recoveries.
 
 ![그림11](./../images/2025-12-03-Euro2024Final/그림11.png)
 
-이어지는 장면인 위 상황에서 빠른 압박 속에서 게히의 패스가 뒤는 게 내려오는 루크 쇼에 이어지지만 공을 받은 후에는 모든 팀 동료가 마킹 되어 있어 활로를 찾지 못하고 소유권을 내줍니다. 
+In the subsequent sequence shown above, under intense pressure, Guehi’s pass finds Luke Shaw dropping deeper to receive the ball. However, once Shaw is in possession, all of his teammates are tightly marked, leaving him with no viable passing options and ultimately forcing England to concede possession. 
 
 ![그림12](./../images/2025-12-03-Euro2024Final/그림12.png)
 
-이 장면도 비슷한 장면으로 위로 올라가 있다가 센터백이 압박을 받자, 윙어 벨링엄이 급하게 받아주러 내려옵니다.
+This scene follows a similar pattern. While positioned high up the pitch, once the centre-back comes under pressure, the winger, Bellingham, is forced to drop deep in a rushed attempt to offer support.
 
-전반전을 보면서 스페인의 압박 전술이 좋았던 것도 맞지만 ***영국이 힘든 경기 양상이 지속되도록 빌미를 제공***했다는 결론에 다다랐습니다. ***준비한 규율과 시스템만을 고집했지만 시스템 자체의 완성도가 높지 않았다***는 게 여실히 드러나는 전반이었다는 게 제 결론입니다.  
+Watching the first half as a whole, while Spain’s pressing structure was certainly effective, it becomes clear that England itself contributed to sustaining a difficult game state. They stubbornly adhered to their pre-planned rules and system, yet the system itself lacked sufficient completeness, a limitation clearly exposed throughout the first half.
 
-주요 요인으로는 ***빌드업시 측면에서의 너무 넓은 간격***, 골키퍼 ***롱킥을 통한 우측의 경합에 적합하지 않은 선수들의 신장***, ***미흡한 빌드업 체계***가 눈에 뜨는 문제점이라고 보여집니다. 먼저, England Passing Map에서 보여지듯이 기본적으로 좌측 루크쇼의 위치가 굉장히 높습니다. 윙어인 주드 벨링엄과 거의 동일한 포지션이죠. 이 때문에 빌드업시에 너무 넓은 간격으로 압박에 취약해집니다. 루크 쇼와 벨링엄은 둘 다 높이 올라가 있는 상태에서 빌드업이 시작되고 영국의 좌측은 자연스럽게 숫자가 부족해집니다. 뒤늦게 루크 쇼나 벨링엄이 받아주러 내려오지만 내려오는 시간이 결려 수비들은 이미 자리를 잡고 영국 선수들에 밀착 마킹이 된 상태로 영국 선수들은 돌아서 정면을 볼 수 없어 ***어렵게 백패스를 하거나 시간이 끌리면 고립될 수 있는 리스크를 감수하더라도 등져서 버텨내야 하는 딜레마에 빠집니다.***
+At a broader level, several structural issues stand out: excessively wide spacing on the flanks during build-up, the use of goalkeeper long kicks toward the right side despite the personnel being ill-suited for aerial duels, and an underdeveloped build-up framework overall. To begin with, as shown in England’s Passing Map, Luke Shaw’s average position on the left is extremely high, almost identical to that of the winger, Jude Bellingham. This leads to overly stretched spacing during build-up, making England highly vulnerable to pressure. With both Shaw and Bellingham positioned high as build-up begins, England’s left side naturally becomes numerically underloaded.
 
-다시 말하면 몇몇 선수들의 포지셔닝은 롱볼을 위한 포지셔닝인데 골키퍼와 센터백은 짧게 가능 빌드업을 선택하는 엇박자가 나오는 상황들을 반복해서 포착할 수 있었습니다. 명확하지 않은 전술의 결과입니다. 두 번째로는 우측 공간의 선수들을 몰아 넣어 경합을 통해 상대 진영에서 공을 소유하겠다는 목적을 가지고 골키퍼의 롱킥 처리가 잦았지만 그 지역의 영국 선수들의 신장은 경합에 적합하지 않습니다. 영국 우측의 경합 선수들로는 부카요 사카, 코비 마이누, 필 포든, 그리고 케인. 상대는 이를 파악하고 센터백 두 명, 풀백 그리고 세 명의 미드필더를 같은 공간에 배치하는 대응을 보여주는데 이때 케인을 제외하면 모두 180 cm 미만의 신장으로 180 후반에서 190 초반인 스페인 센터백들과 장신의 미드필더들과 경합을 해서 이겨내야 합니다. 그 결과 앞서 데이터를 확인했듯이 ***경합에 참여한 네 명의 영국 선수들은 경합 성공률은 처참합니다***. 적합하지 않은 선수 조건과 단순한 전술인 만큼 상대도 ***수비 숫자를 늘리며 쉽게 대처하게 됩니다.*** 
+Although Shaw or Bellingham eventually drops to receive the ball, the delay allows the opposition defence to settle into position and apply tight man marking. As a result, England’s players are unable to turn and face forward, often forced to play backward passes or to shield the ball with their backs to the goal, creating an apparent dilemma.
 
-정리를 하자면 ***영국은 소극적인 압박과 정해진 틀에 갖혀 전반전을 주도하지 못했고***, 반대로 ***스페인은 상대의 노림수에 맞게 대응을 하고 유연성을 발휘해*** 상대가 유도한 측면에 선수를 더 배치함으로서 순각적인 숫적 우위를 활용해 전번전 내내 점유에서의 우위와 공격 주도권을 유지합니다. 그리고 데이터를 통해 얻은 두 질문에 답하자면 스페인은 설명했 던 것처럼 로드리의 포지션을 기점으로 측면에 숫자를 투자해 숫적 우위를 가져갔고 영국은 미드필더 세 명 중 두 명이 우측으로 쏠리면서 숫자를 더했지만 이렇다할 결과를 가져오지 못합니다.  그리고 숫자를 투자하지 않은 반대편의 공격이 효율적이었냐고 하면은 두 팀 모두 한 쪽에 숫자를 집중시킨 후 의도적으로 상대를끌 어드려 반대편 공격 자원에게 공간을 만들어 주고 큰 전환 패스로 넘어가 윙어가 1대1을 시도하게 하는 그림이나 한 쪽 측면을 의도적으로 고립하는 장면은 없었고 센터백과 미드필더를 거쳐 단게적으로 전환을 해 숫자를 늘려 상대를 파훼하려는 시도가 주된 방식이었음을 확인했습니다. 
+In other words, some players’ positioning appears to be oriented toward long-ball situations, while the goalkeeper and centre-backs opt for short build-up, creating repeated moments of tactical dissonance. This is ultimately the outcome of an unclear tactical direction.
 
-결론적으로 ***전반전은 스페인의 전술적 완승***이었고 후반전에 영국이 어떤 변화를 가져와 반전을 꾀할지에 집중하면서 후반전을 분석하겠습니다. 
+Secondly, although England frequently used long goal kicks with the intention of crowding the right side and winning duels to secure possession high up the pitch, the physical profile of the players in that zone was not suited to such contests. The primary targets on England’s right were Bukayo Saka, Kobbie Mainoo, Phil Foden, and Kane. Spain clearly recognised this and responded by positioning two centre-backs, a full-back, and three midfielders in the same area. Excluding Kane, all of England’s players involved are under 180 centimetres, meaning they were required to win aerial and physical duels against Spanish centre-backs in the high 180s to low 190s range, as well as tall midfielders. As previously shown, the duel success rates of the four England players involved were extremely poor. When unsuitable player profiles are paired with a predictable and straightforward tactical idea, the opponent can easily respond by committing numbers.
 
-다음 편에서 이어서. 
+To summarise, England were unable to control the first half, constrained by passive pressing and a rigid tactical framework. In contrast, Spain responded precisely to England’s intentions, demonstrating flexibility and repeatedly allocating additional players to the flanks that England attempted to exploit. This allowed Spain to consistently generate momentary numerical advantages, maintaining superiority in possession and attacking initiative throughout the first half.
+
+Addressing the two questions raised from the data, Spain, as explained, invested numbers on the flanks with Rodri’s positioning as the reference point, successfully securing numerical superiority. England, meanwhile, also added numbers by shifting two of their three midfielders toward the right, but this failed to produce any meaningful outcome.
+
+As for whether attacks on the opposite, less invested side were practical, neither team consistently attempted to draw the opponent toward one flank and then exploit the far side through large switches to create isolated 1v1 situations for the wingers. Instead, both sides primarily relied on gradual circulation through centre-backs and midfielders, incrementally increasing numbers to break down the opposition structure.
+
+In conclusion, the first half was a clear tactical victory for Spain. With that established, the focus now turns to what changes England introduced in the second half to turn the match around. 
+
+Shall continue in the next part.
