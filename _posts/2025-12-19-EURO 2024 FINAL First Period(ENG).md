@@ -6,13 +6,15 @@ tag: [EURO 2024]
 toc: true
 ---
 
-#**Introduction**
+# Data Analysis 
+
+## Introduction
 
 In this paper, we discuss the EURO 2024 Final between England and Spain. Before analysing the match video, a brief discussion of the data and visualisation comes first. The data and visualisation review in advance aims to preview the match and raise questions based on the review.
 
 The following video analysis shall focus on answering the raised questions.
 
-#**Preprocessing**
+## Preprocessing
 
 
 ```python
@@ -35,7 +37,7 @@ fp = df.sort_values(by='timestamp', ascending=True)
 fp.head()
 ```
 
-#**Player & Team xG**
+## Player & Team xG
 
 
 ```python
@@ -87,7 +89,7 @@ print(t_xg)
     Spain      0.34
     Name: shot_statsbomb_xg, dtype: float64
 
-#**Duel Stats**
+## Duel Stats
 
 ```python
 #선수별 경합 성공률
@@ -159,7 +161,7 @@ Daniel Olmo Carvajal               1.0        2.0              33.33  Spain
 Rodrigo Hernández Cascante         0.0        1.0               0.00  Spain
 ```
 
-#**Duel Success Rates**
+## Duel Success Rates
 
 ```python
 duel_won_cd = df[df['duel_outcome'].isin(['Won', 'Success In Play', 'Success Out']) | df['clearance_aerial_won'].isin([True])]
@@ -188,7 +190,7 @@ Spain           9         11               45.0
 England         9         16               36.0
 ```
 
-#**Dribble Stats**
+## Dribble Stats
 
 ```python
 df = fp.copy()
@@ -241,7 +243,7 @@ Lamine Yamal Nasraoui Ebana                   0.0  Spain
 
 According to the xG from the first period, it seems to be more of a probing action. England showed 0.28, while Spain was higher at 0.34. However, it is a nuance, and as both teams’ expected goals are under 1, describing neither team created a potent goal-scoring chance. In terms of duel success, Spain had the advantage, winning 9 out of 20 (45%), while England won 9 out of 25 (36%). The duels include aerial and tackle duels. 
 
-#**England‘s Passing Map**
+## England‘s Passing Map
 
 
 ```python
@@ -365,7 +367,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 
 ![output_19_0](./../images/2025-12-03-Euro2024Final/output_19_0.png)
 
-#**England‘s Passing Success Rates**
+## England‘s Passing Success Rates
 
 ```python
 Team = 'England'
@@ -419,7 +421,7 @@ Declan Rice                     11            18         61.11
 Harry Kane                       5            10         50.00
 ```
 
-#**England’s Pass Failed Endpoints**
+## England’s Pass Failed Endpoints
 
 ```python
 TEAM_NAME = 'England'
@@ -467,7 +469,7 @@ In addition, more manpower was invested, as two of the three midfielders' averag
 
 In the following preview of Spain’s first period, the raised questions shall be developed. 
 
-#**Spain’s Passing Map**
+## Spain’s Passing Map
 
 
 ```python
@@ -591,7 +593,7 @@ plt.savefig(f"Spain Passing Map {period}.png", dpi=200, bbox_inches="tight")
 
 ![output_21_0](./../images/2025-12-03-Euro2024Final/output_21_0.png)
 
-#**Spain‘s Passing Success Rates**
+## Spain‘s Passing Success Rates
 
 
 ```python
@@ -644,7 +646,7 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Lamine Yamal Nasraoui Ebana                  13            22         59.09
     Álvaro Borja Morata Martín                    8            14         57.14
 
-#**Spain’s Pass Failed Endpoints**
+## Spain’s Pass Failed Endpoints
 
 
 ```python
@@ -695,7 +697,7 @@ In conclusion, the main question to be answered by the video analysis is: First,
 
 Answering the two questions shall bring us closer to the answers to all the doubts related to low xG and shot attempts of both teams. 
 
-#**Video Analysis**
+# Video Analysis
 
 ![image-20251223164735656](./../images/2025-12-03-Euro2024Final/image-20251223164735656.png)
 
@@ -776,3 +778,6 @@ As for whether attacks on the opposite, less invested side were practical, neith
 In conclusion, the first half was a clear tactical victory for Spain. With that established, the focus now turns to what changes England introduced in the second half to turn the match around. 
 
 Shall continue in the next part.
+
+
+
