@@ -3,15 +3,18 @@ layout: single
 title:  "EURO 2024 Finals Analytics Period 1 (KOR)"
 categories: [Football Analysis (KOR)]
 tag: [EURO 2024]
+toc: true
 ---
 
-**Introduction**
+# Data Analysis
+
+## **Introduction**
 
 이 글은 Statsbomb API를 통한 데이터와 중계 영상 분석에 기반해 잉글랜드와 스페인이 맞붙은 EURO 2024 결승전을 다룹니다. 본격적으로 경기 영상을 분석하기에 앞서, 먼저 데이터와 시각화 자료를 간단히 살펴보며 경기의 흐름을 미리 짚어보고, 이를 바탕으로 몇 가지 질문을 던져 보고자 합니다.
 
 이후 이어지는 영상 분석 파트에서는 앞서 제기한 질문들에 답하는 데 초점을 맞춰 설명하겠습니다.
 
-**Preprocessing**
+## **Preprocessing**
 
 
 ```python
@@ -34,7 +37,7 @@ fp = df.sort_values(by='timestamp', ascending=True)
 fp.head()
 ```
 
-**Player & Team xG**
+## **Player & Team xG**
 
 
 ```python
@@ -86,7 +89,7 @@ print(t_xg)
     Spain      0.34
     Name: shot_statsbomb_xg, dtype: float64
 
-**Duel Stats**
+## **Duel Stats**
 
 ```python
 #선수별 경합 성공률
@@ -158,7 +161,7 @@ Daniel Olmo Carvajal               1.0        2.0              33.33  Spain
 Rodrigo Hernández Cascante         0.0        1.0               0.00  Spain
 ```
 
-**Duel Success Rates**
+## **Duel Success Rates**
 
 ```python
 duel_won_cd = df[df['duel_outcome'].isin(['Won', 'Success In Play', 'Success Out']) | df['clearance_aerial_won'].isin([True])]
@@ -187,7 +190,7 @@ Spain           9         11               45.0
 England         9         16               36.0
 ```
 
-**Dribble Stats**
+## **Dribble Stats**
 
 ```python
 df = fp.copy()
@@ -242,7 +245,7 @@ Lamine Yamal Nasraoui Ebana                   0.0  Spain
 
 경합 성공률을 보면 스페인이 우위를 점했습니다. 스페인은 총 20번의 경합 중 9번을 성공하며 45%를 기록했고, 잉글랜드는 25번 중 9번 성공으로 36%에 그쳤습니다. 여기서 말하는 경합은 공중 볼 경합과 태클 경합을 모두 포함합니다.
 
-**England‘s Passing Map**
+## **England‘s Passing Map**
 
 
 ```python
@@ -366,7 +369,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 
 ![output_19_0](./../images/2025-12-03-Euro2024Final/output_19_0.png)
 
-**England‘s Passing Success Rates**
+## **England‘s Passing Success Rates**
 
 ```python
 Team = 'England'
@@ -472,7 +475,7 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 이후 이어지는 스페인의 전반전 프리뷰에서는 이 질문들을 중심으로 분석을 전개해 보겠습니다.
 
-**Spain’s Passing Map**
+## **Spain’s Passing Map**
 
 
 ```python
@@ -596,7 +599,7 @@ plt.savefig(f"Spain Passing Map {period}.png", dpi=200, bbox_inches="tight")
 
 ![output_21_0](./../images/2025-12-03-Euro2024Final/output_21_0.png)
 
-**Spain‘s Passing Success Rates**
+## **Spain‘s Passing Success Rates**
 
 
 ```python
@@ -649,7 +652,7 @@ print(pass_stats_per_player.sort_values(by='success_rate', ascending=False).head
     Lamine Yamal Nasraoui Ebana                  13            22         59.09
     Álvaro Borja Morata Martín                    8            14         57.14
 
-**Spain’s Pass Failed Endpoints**
+## **Spain’s Pass Failed Endpoints**
 
 
 ```python
@@ -710,7 +713,7 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 이 두 질문에 답하게 되면, 전반적으로 양 팀의 낮은 xG와 제한적인 슈팅 시도에 대한 의문도 자연스럽게 해소될 것입니다.
 
-**Video Analysis**
+# **Video Analysis**
 
 ![image-20251223164735656](./../images/2025-12-03-Euro2024Final/image-20251223164735656.png)
 
