@@ -365,7 +365,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 ![England Passing Map]("C:/Users/HP/Downloads/Euro_2024_Final/output_19_0.png")
 ```
 
-![output_19_0](./../images/2025-12-03-Euro2024Final/output_19_0.png)
+![output_19_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/output_19_0.png)
 
 ## England‘s Passing Success Rates
 
@@ -459,7 +459,7 @@ plt.show()
 plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches="tight")
 ```
 
-![output_27_0](./../images/2025-12-03-Euro2024Final/output_27_0.png)
+![output_27_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/output_27_0.png)
 
 According to the Passing Map of England, the build-up starts with the Goalkeeper. It can be inferred that the team aimed to include the Goalkeeper in the build-up to gain numerical advantage, as Jordan Pickford made the second-highest number of passes in the team with 19. 
 
@@ -591,7 +591,7 @@ plt.savefig(f"Spain Passing Map {period}.png", dpi=200, bbox_inches="tight")
 ![Spain Passing Map]("C:/Users/HP/Downloads/Spain_Passing_Map_1.png")
 ```
 
-![output_21_0](./../images/2025-12-03-Euro2024Final/output_21_0.png)
+![output_21_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/output_21_0.png)
 
 ## Spain‘s Passing Success Rates
 
@@ -685,7 +685,7 @@ plt.show()
 plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches="tight")
 ```
 
-![output_29_0](./../images/2025-12-03-Euro2024Final/output_29_0.png)
+![output_29_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/output_29_0.png)
 
 According to the Spain Passing Map, the build-up mostly starts from the two centre-backs. England used to let both full-backs in the front, almost like the wingers. Therefore, it was necessary to involve the goalkeeper in the build-up so that the two centre-backs were not solely exposed to pressure. On the other hand, Spain’s goalkeeper was not actively involved in the build-up as Unai Simon Mendibil only progressed 18 passes, while the two centre-backs' average pass total is 49.5 (Figure 9). Furthermore, Spain adopted an inverted full-back system. Putting the left fullback in the front while the right fullback stays behind to take on the role of the third centre-back. The midfielders were also leaning to the left. Consequently, it could be inferred that Spain has overloaded midfielders toward the left side to go aggressively, which corresponds with the left fullback’s progress. Another reason for midfielders’ leaning toward the left is one way to counter England’s attacking strategy. In the visualisation, all teams progress left to right to simplify it for viewers. 
 
@@ -699,37 +699,37 @@ Answering the two questions shall bring us closer to the answers to all the doub
 
 # Video Analysis
 
-![image-20251223164735656](./../images/2025-12-03-Euro2024Final/image-20251223164735656.png)
+![image-20251223164735656](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/image-20251223164735656.png)
 
 In the first half, England approached the game in a cautious manner. Rather than pressing aggressively to win the ball high up the pitch, they focused on man-marking central players, as shown in the image above, effectively blocking the central areas and deliberately guiding the opponent toward the wide areas.
 
-![장면 0](./../images/2025-12-03-Euro2024Final/장면 0.png)
+![장면 0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/장면 0.png)
 
 In contrast, during the early phases of Spain’s build-up, Rodri initially attempted to support circulation by dropping into central areas while the back four spread wide to provide width. However, as mentioned earlier, England disrupted this structure, with Harry Kane and Phil Foden actively applying man-oriented pressure to disrupt Spain’s build-up.
 
 In the following sequence, Rodri’s positioning in response to this pressure is particularly impressive. To shake off Foden’s man-marking, Rodri chose to drop all the way into the centre-back line and directly involve himself in the build-up. By doing so, as illustrated in the scene below, Spain was able to create temporary 3v2 situations in central areas, making it difficult for England to press effectively and, as a result, naturally increasing their share of possession.
 
-![장면 2-1](./../images/2025-12-03-Euro2024Final/장면 2-1.png)
+![장면 2-1](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/장면 2-1.png)
 
 In this sequence, Rodri drops into the space vacated by the right full-back, Carvajal, who has moved higher up the pitch, positioning himself almost like the right-sided centre-back in a back three. This movement effectively exploits England’s heavy investment in protecting the central areas.
 
 With both of England’s markers drawn into the middle, Rodri can carry the ball forward toward Carvajal’s side, momentarily creating a 2v1 situation against the opposing winger, Bellingham. This allows Spain to progress into the opposition half with greater ease, and similar patterns can be observed repeatedly throughout the first half.
 
-![장면 1](./../images/2025-12-03-Euro2024Final/장면 1.png)
+![장면 1](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/장면 1.png)
 
 Another example can be seen in the scene above. England’s left winger, Bellingham, positions himself closer to the central area to block passing lanes into the half-spaces, staying tight to Foden and Kane. As a result, Spain’s right full-back, Carvajal, can receive the ball more freely, with Bellingham then forced to track across.
 
 At this moment, the right winger, Yamal, drops toward the ball, instantly creating a 2v1 situation against Bellingham. This movement not only relieves pressure but also allows Spain to maintain possession without disruption.
 
-![image-20251223165214409](./../images/2025-12-03-Euro2024Final/image-20251223165214409.png)
+![image-20251223165214409](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/image-20251223165214409.png)
 
 The following sequence presents a similar pattern. Rather than positioning himself between two midfielders, Rodri drops deeper and operates almost as the central defender in a back three. This makes it difficult for the opponent to apply pressure, while the two original centre-backs shift wider to the left and right, encouraging numerical superiority on the flanks.
 
-![장면 2](./../images/2025-12-03-Euro2024Final/장면 2.png)
+![장면 2](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/장면 2.png)
 
 As a result, in the following sequence, Laporte can carry the ball forward into the left-sided space without being put under pressure. Rodri’s involvement in the build-up is particularly encouraging here, as it allows Laporte to circulate the ball to Cucurella quickly. At the same time, the left winger, Nico Williams, drops early to create a momentary 2v1 situation against the marked Saka.
 
-![장면 3](./../images/2025-12-03-Euro2024Final/장면 3.png)
+![장면 3](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/장면 3.png)
 
 In this scene as well, he moves directly into the left-sided channel, occupying Cucurella’s original position. This allows Cucurella to advance one line higher while simultaneously providing the centre-back with an additional passing option.
 
@@ -737,25 +737,25 @@ Through these repeated movements, Spain was able to progress the ball into the o
 
 In contrast, England attempted to operate strictly within their established system. As previously described, they focused on shutting down the central areas and, as shown in the two consecutive sequences below, guided the opponent toward the flanks before applying double-team pressure to isolate the ball carrier.
 
-![image-20251223165503586](./../images/2025-12-03-Euro2024Final/image-20251223165503586.png)
+![image-20251223165503586](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/image-20251223165503586.png)
 
-![image-20251223165509024](./../images/2025-12-03-Euro2024Final/image-20251223165509024.png)
+![image-20251223165509024](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/image-20251223165509024.png)
 
-![그림9](./../images/2025-12-03-Euro2024Final/그림9.png)
+![그림9](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/그림9.png)
 
 In addition, rather than building up through structured possession, England frequently opted for goal kicks aimed toward the right side of the opposition half, where several players were positioned beyond the halfway line to contest second balls and quickly regain possession high up the pitch. This reliance on long balls also helps explain why Jordan Pickford’s pass completion rate, previously noted at 68.42 per cent, was relatively low.
 
-![그림10](./../images/2025-12-03-Euro2024Final/그림10.png)
+![그림10](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/그림10.png)
 
 In this sequence, when England chose to build up from the back rather than from a goal kick, the goalkeeper stepped higher to form a three-man build-up structure, similar to Spain’s approach. However, a key difference lies in the much wider spacing between the players.
 
 In response, Spain adopted a markedly tighter pressing approach compared to England. The striker applied pressure to the ball carrier while blocking passing lanes, before forcing play toward one flank and then engaging in man-oriented pressing to attempt ball recoveries.
 
-![그림11](./../images/2025-12-03-Euro2024Final/그림11.png)
+![그림11](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/그림11.png)
 
 In the subsequent sequence shown above, under intense pressure, Guehi’s pass finds Luke Shaw dropping deeper to receive the ball. However, once Shaw is in possession, all of his teammates are tightly marked, leaving him with no viable passing options and ultimately forcing England to concede possession. 
 
-![그림12](./../images/2025-12-03-Euro2024Final/그림12.png)
+![그림12](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(ENG)/그림12.png)
 
 This scene follows a similar pattern. While positioned high up the pitch, once the centre-back comes under pressure, the winger, Bellingham, is forced to drop deep in a rushed attempt to offer support.
 

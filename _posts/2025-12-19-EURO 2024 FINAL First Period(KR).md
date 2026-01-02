@@ -367,7 +367,7 @@ plt.savefig(f"England_Passing_Map_{period}.png",dpi=200, bbox_inches="tight")
 ![England Passing Map]("C:/Users/HP/Downloads/Euro_2024_Final/output_19_0.png")
 ```
 
-![output_19_0](./../images/2025-12-03-Euro2024Final/output_19_0.png)
+![output_19_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/output_19_0.png)
 
 ## **England‘s Passing Success Rates**
 
@@ -461,7 +461,7 @@ plt.show()
 plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches="tight")
 ```
 
-![output_27_0](./../images/2025-12-03-Euro2024Final/output_27_0.png)
+![output_27_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/output_27_0.png)
 
 잉글랜드의 패싱 맵을 보면 빌드업은 골키퍼부터 시작되는 흐름이었습니다. 조던 픽포드가 팀 내 두 번째로 많은 19개의 패스를 기록한 점을 보면, ***골키퍼를 적극적으로 빌드업에 포함시켜 수적 우위를 만들고자 했던 의도가 읽힙니다.***
 
@@ -597,7 +597,7 @@ plt.savefig(f"Spain Passing Map {period}.png", dpi=200, bbox_inches="tight")
 ![Spain Passing Map]("C:/Users/HP/Downloads/Spain_Passing_Map_1.png")
 ```
 
-![output_21_0](./../images/2025-12-03-Euro2024Final/output_21_0.png)
+![output_21_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/output_21_0.png)
 
 ## **Spain‘s Passing Success Rates**
 
@@ -691,7 +691,7 @@ plt.show()
 plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches="tight")
 ```
 
-![output_29_0](./../images/2025-12-03-Euro2024Final/output_29_0.png)
+![output_29_0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/output_29_0.png)
 
 스페인의 패싱 맵을 보면, 빌드업은 주로 두 센터백에서 시작되는 흐름이었습니다. 잉글랜드는 두 풀백을 거의 윙어처럼 전진 배치하는 경향이 있었기 때문에, ***센터백 둘이 압박에 고스란히 노출되지 않도록 골키퍼가 빌드업에 적극 관여하는 것이 필수적이었죠.***
 
@@ -715,31 +715,31 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 # **Video Analysis**
 
-![image-20251223164735656](./../images/2025-12-03-Euro2024Final/image-20251223164735656.png)
+![image-20251223164735656](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/image-20251223164735656.png)
 
 위의 장면처럼, 전반전에는 영국 측은 조심스럽게 경기에 임했고 압박을 통해 상대가 상대 진영에서 볼을 탈취하기 보다는 위의 사진처럼 중앙 선수들을 맨마킹을 통해 ***중앙을 봉쇄하고 상대를 측면으로 유도***합니다. 
 
-![장면 0](./../images/2025-12-03-Euro2024Final/장면 0.png)
+![장면 0](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/장면 0.png)
 
 반면, 처음에 스페인측은 빌드업 시에 로드리가 포백이 넓이를 주고 벌리고 로드리는 중앙으로 내려와 볼 배급을 도와주려는 했지만 언급했듯이 잉글랜드 진영에서 헤리 케인과 필 포든이 적극적으로 마킹을 하며 빌드업을 방해하는 양상을 띕니다. 다음 장면에서 나오는, 이에 대응하기 위한 로드리 선수의 포지셔닝이 굉장히 인상적입니다. 로드리는 포든의 맨마킹을 떨치기 위해 ***센터백 라인까지 내려와 빌드업에 관여***하기를 선택했고 이를 통해 아래의 장면처럼 ***중앙에서 2대 3대의 상황을 발생***시켜 상대가 쉽사리 압박하지 못하게 했고 자연스럽게 점유율을 늘립니다.
 
-![장면 2-1](./../images/2025-12-03-Euro2024Final/장면 2-1.png)
+![장면 2-1](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/장면 2-1.png)
 
 위 장면에서는 로드리 선수가 우측 풀백인 카르바할 선수가 위쪽으로 이동한 지역으로 내려가 마치 쓰리백의 우측 센터백처럼 위치하는 장면입니다. 이 포지셔닝은 이 영국의 중앙을 사수하기 위한 투자를 역이용할 수 있는 움직임입니다. 두 선수가 중앙에 위치해 있기 때문에 로드리가 공을 몰고 카르바할쪽으로 전진할 경우 순간적으로 상대 ***윙어인 벨링엄과 2대1 상황이 발생***하고 이를 통해 보다 수월하게 상대 진영으로 전진할 수 있고 이와 비슷한 장면이 지속적으로 발생합니다.
 
-![장면 1](./../images/2025-12-03-Euro2024Final/장면 1.png)
+![장면 1](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/장면 1.png)
 
 다른 예로는 위 장면이 있습니다. 영국의 좌측 윙어 벨링엄이 중앙 사이 공간으로 패스가 들어가지 않도록 중앙에 위치의 포든과 케인쪽으로 가까이 붙어 있었고 이를 통해 스페인 우측 풀백 카르바할이 보다 쉽게 공을 받았고 이후 벨링엄이 따라가는 양상입니다. 이때 순간적으로 우측 윙어 야말이 공을 받으러 내려오면서 순간적을 ***벨링엄을 상대로 2대1 상황을 만들어 내고 결과적으로 보다 쉽게 점유***를 이어 갑니다. 
 
-![image-20251223165214409](./../images/2025-12-03-Euro2024Final/image-20251223165214409.png)
+![image-20251223165214409](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/image-20251223165214409.png)
 
 다음 장면 또한 비슷한 예로, 로드리가 중원에서 두 명 사이에 위치하기 보다 ***쓰리백의 중앙 수비수처럼 내려와*** 상대가 쉽게 압박하지 못하게 하고 ***기존 두 센터백이 각각 좌측 우측으로 움직여 사이드에서 수적 우위를 점하게 유도***합니다. 
 
-![장면 2](./../images/2025-12-03-Euro2024Final/장면 2.png)
+![장면 2](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/장면 2.png)
 
 그렇기에 이어지는 장면에서 라포르테가 상대에 압박을 받지 않고 좌측 공간을 향해 전진합니다. 로드리의 빌드업 관여가 고무적인 이유는 위 상황에서 라포르테가 빠르게 쿠쿠렐라한테 볼을 전달하고 왼쪽 윙어 니코 윌리엄스가 먼저 내려오고 순간적으로 ***사카를 상대로 2대1 상황이 발생***하기 때문입니다.
 
-![장면 3](./../images/2025-12-03-Euro2024Final/장면 3.png)
+![장면 3](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/장면 3.png)
 
 이 장면에서도 직접 좌측 사이드로 이동해 쿠쿠렐라의 기존 포지션에 위치해 ***쿠쿠렐라가 한 칸 더 전진이 가능하게 하고*** 동시에 센터백의 패스 선택지가 되어 줍니다. 
 
@@ -747,25 +747,25 @@ plt.savefig(f"{TEAM_NAME} Failed Pass Endpoints {period}", dpi=200, bbox_inches=
 
 반면에 영국의 경우, 자신들의 시스템에 기반하여 움직이려고 했습니다. 앞서 설명했듯이 중원을 틀어 막고 아래의 연속되는 두 장면처럼 상대를 ***사이드로 유도 후 더블 팀을 붙여 상대를 고립***시킵니다.  
 
-![image-20251223165503586](./../images/2025-12-03-Euro2024Final/image-20251223165503586.png)
+![image-20251223165503586](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/image-20251223165503586.png)
 
-![image-20251223165509024](./../images/2025-12-03-Euro2024Final/image-20251223165509024.png)
+![image-20251223165509024](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/image-20251223165509024.png)
 
-![그림9](./../images/2025-12-03-Euro2024Final/그림9.png)
+![그림9](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/그림9.png)
 
 또한 빌드업을 거치기 보다는 우측에 하프 라인을 넘은 상대 진영에 선수들을 모아서 경합을 통해 빠르게 상대 진영에서 공을 소유하고자 하는 골기퍼의 골킥이 꽤 많았습니다. 잦은 롱볼 시도로 이전에 언급한 ***픽 포드 골기퍼의 패스 성공률이 68.42%로 비교적 낮을 수 밖에 없는 이유***이기도 합니다. 
 
-![그림10](./../images/2025-12-03-Euro2024Final/그림10.png)
+![그림10](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/그림10.png)
 
 위 장면은 골킥이 아닌 후방에서부터 빌드업을 할 경우에는 골키퍼를 올려 스페인과 비슷하게 3명의 인원으로 빌드업 시도합니다. 다만 ***차이점이 있다면 선수 간 간격이 훨씬 넓습니다.***
 
 이에 대해 ***스페인은 영국과는 다르게 타이트한 압박 기조***를 보여줍니다. 위 장면에서는 넓은 영국 진영의 간격이 공략 당하는 장면입니다. 스페인 최전방 공격수가 볼을 가진 선수를 압박 후 ***패스 라인을 막고 한 쪽 측면으로 몰아 넣은 뒤 맨마킹 형식으로 압박을 걸고 볼 탈취를 시도***합니다. 
 
-![그림11](./../images/2025-12-03-Euro2024Final/그림11.png)
+![그림11](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/그림11.png)
 
 이어지는 장면인 위 상황에서 빠른 압박 속에서 게히의 패스가 뒤는 게 내려오는 루크 쇼에 이어지지만 공을 받은 후에는 모든 팀 동료가 마킹 되어 있어 활로를 찾지 못하고 소유권을 내줍니다. 
 
-![그림12](./../images/2025-12-03-Euro2024Final/그림12.png)
+![그림12](./Users/HP/OneDrive/문서/GitHub/ReadandMove.github.io/images/2025-12-19-EURO 2024 FINAL First Period(KR)/그림12.png)
 
 이 장면도 비슷한 장면으로 위로 올라가 있다가 센터백이 압박을 받자, 윙어 벨링엄이 급하게 받아주러 내려옵니다.
 
